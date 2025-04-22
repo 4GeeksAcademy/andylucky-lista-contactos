@@ -1,7 +1,8 @@
 export const initialStore = () => {
   return {
     responString: null,
-    agendas: null
+    agendas: null,
+    // contacts_elegido: []
   }
 }
 
@@ -14,6 +15,13 @@ export default function storeReducer(store = initialStore(), action = {}) {
       return {
         ...store,
         contacts
+      }
+    }
+    case 'get_contactos_userid': {
+      const { contacts_elegido} = action.payload;
+      return {
+        ...store,
+        contacts_elegido
       }
     }
 
