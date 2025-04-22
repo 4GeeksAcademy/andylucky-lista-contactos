@@ -3,11 +3,14 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useEffect, useState } from "react";
 import contactosAgendas from "../servicios/serviciosAgendas";
 
+
+
 export const Contactos = () => {
   const navigate = useNavigate();
   const { store, dispatch } = useGlobalReducer();
   const [contactoAEliminar, setContactoAEliminar] = useState(null);
   const [usuarioActual, setUsuarioActual] = useState(null);
+
 
 
   useEffect(() => {
@@ -40,12 +43,10 @@ export const Contactos = () => {
             payload: { contacts: responseContactos.contacts }
           });
         }
-
       } catch (error) {
         console.error("Error al cargar los datos:", error);
       }
     };
-
     fetchData();
   }, []);
 
